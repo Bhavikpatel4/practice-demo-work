@@ -12,7 +12,7 @@ import javax.crypto.spec.SecretKeySpec;
 public class BoiEncryption {
 
 	public static void main(String[] args) {
-		String file_path = "\\\\192.168.1.250\\ict_share\\KSBCL\\KSBCL\\Accounting\\N840420110000301201201";
+		String file_path = "\\\\192.168.1.250\\ict_share\\KSBCL\\KSBCL\\Accounting\\KTBL\\KNEFTTEST";
 		boolean flag=false;
 	    if (file_path == null || ("").equals(file_path)) {
 	    	System.out.println("Incorrect file path");

@@ -8,15 +8,17 @@ import java.util.concurrent.Executors;
 class Task implements Runnable {
 
 	private String name;
+	private int loop;
 	
-	public Task(String name) {
+	public Task(String name, int loop) {
 		this.name = name;
+		this.loop = loop;
 	}
 
 	@Override
 	public void run() {
 		try {
-			for(int i=1; i<=5; i++) {
+			for(int i=1; i<=loop*2; i++) {
 				LocalTime localTime = LocalTime.now();
 				if(i == 1) {
 					System.out.println("Initialization Time for task name - "+ name +" = " + localTime.format(DateTimeFormatter.ofPattern("hh:mm:ss"))); 
@@ -37,11 +39,11 @@ public class ThreadPoolDemo {
 
 	public static void main(String[] args) {
 		// creates five tasks
-        Runnable r1 = new Task("task 1");
-        Runnable r2 = new Task("task 2");
-        Runnable r3 = new Task("task 3");
-        Runnable r4 = new Task("task 4");
-        Runnable r5 = new Task("task 5");
+        Runnable r1 = new Task("task 1", 1);
+        Runnable r2 = new Task("task 2", 2);
+        Runnable r3 = new Task("task 3", 3);
+        Runnable r4 = new Task("task 4", 4);
+        Runnable r5 = new Task("task 5", 5);
         
         ExecutorService pool = Executors.newFixedThreadPool(3);
         
