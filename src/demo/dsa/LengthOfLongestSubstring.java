@@ -1,16 +1,17 @@
 package demo.dsa;
 
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class LengthOfLongestSubstring {
 	public static void main(String[] args) {
-		String s = "dvdf";
+		String s = "dabvdf";
 		
 		int length = s.length();
 		int maxLength = 0;
 		int left = 0;
-		Set<Character> charSet = new HashSet<>();
+		Set<Character> charSet = new LinkedHashSet<>();
 		
 		for(int right=0; right<length; right++) {
 			if(!charSet.contains(s.charAt(right))) {
@@ -25,7 +26,7 @@ public class LengthOfLongestSubstring {
 				charSet.add(s.charAt(right));
 			}
 		}
-		
+		System.out.println("Longest substring : " + charSet.stream().map(c->c.toString()).collect(Collectors.joining()));
 		System.out.println("Length of longest substring : " + maxLength);
 	}
 }
